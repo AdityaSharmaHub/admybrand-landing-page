@@ -13,11 +13,11 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="fixed top-0 w-full md:px-12 z-50 backdrop-blur bg-white/5 border-b border-white/10"
+        className="fixed top-0 w-full md:px-12 z-50 backdrop-blur bg-white/10 border-b border-white/10"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2 md:space-x-3 md:mr-20">
+            <Link href="/" className="flex items-center space-x-2 md:space-x-3 md:mr-20">
               <div className="w-9 h-9 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
                 <SparklesIcon className="h-5 w-5 md:w-6 md:h-6 text-white" />
               </div>
@@ -29,29 +29,35 @@ const Header = () => {
                   AI Suite
                 </span>
               </div>
-            </div>
+            </Link>
 
             <nav className="hidden md:flex items-center space-x-8">
               <Link
-                href="#features"
+                href="/#features"
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 Features
               </Link>
               <Link
-                href="#pricing"
+                href="/#pricing"
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 Pricing
               </Link>
               <Link
-                href="#testimonials"
+                href="/#testimonials"
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 Reviews
               </Link>
               <Link
-                href="#faq"
+                href="blog"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/#faq"
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 FAQ

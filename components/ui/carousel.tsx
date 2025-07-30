@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 import { Button } from "./button"
-import { GlassCard } from "./glass-card"
+import { GlassCard } from "./custom/glass-card"
 
 interface TestimonialItem {
   name: string

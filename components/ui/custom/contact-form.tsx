@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send } from "lucide-react"
-import { Button } from "./button"
+import { Button } from "../button"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({

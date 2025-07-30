@@ -17,22 +17,29 @@ import {
   Phone,
   MapPin,
   Sparkles,
+  BookOpen,
+  ExternalLink,
+  User,
+  Clock,
+  Calendar,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Modal } from "@/components/ui/modal"
 import { Carousel } from "@/components/ui/carousel"
-import { FAQ } from "@/components/ui/faq"
-import { ContactForm } from "@/components/ui/contact-form"
-import { GlassCard } from "@/components/ui/glass-card"
-import { AnimatedCounter } from "@/components/ui/animated-counter"
-import { FloatingElements } from "@/components/ui/floating-elements"
-import { Spotlight } from "@/components/ui/spotlight"
-import { BackgroundBeams } from "@/components/ui/background-beams"
+import { FAQ } from "@/components/ui/custom/faq"
+import { ContactForm } from "@/components/ui/custom/contact-form"
+import { GlassCard } from "@/components/ui/custom/glass-card"
+import { AnimatedCounter } from "@/components/ui/custom/animated-counter"
+import { FloatingElements } from "@/components/ui/custom/floating-elements"
+import { BackgroundBeams } from "@/components/ui/custom/background-beams"
 import Header from "@/components/header/header"
 import Footer from "@/components/footer/Footer"
 import { SparklesText } from "@/components/ui/custom/sparkle-text";
+import Link from "next/link"
+import { PricingCalculator } from "@/components/ui/custom/pricing-calculator"
+import { getFeaturedBlogPosts } from "@/lib/blog-data"
 
 export default function LandingPage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -131,11 +138,12 @@ export default function LandingPage() {
     },
   ]
 
+  const blogPosts = getFeaturedBlogPosts()
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
       <FloatingElements />
       <BackgroundBeams />
-      <Spotlight className="top-40 left-0 md:left-60 md:top-20" fill="purple" />
 
       {/* Header */}
       <Header />
@@ -214,7 +222,7 @@ export default function LandingPage() {
               transition={{ duration: 1, delay: 0.6 }}
               className="relative mt-16"
             >
-              <GlassCard className="p-4 md:p-8 mx-auto">
+              <GlassCard className="p-4 mx-auto">
                 <img
                   src="https://placehold.co/1200x600/c084fc/a855f7"
                   alt="ADmyBRAND AI Suite Dashboard"
@@ -282,7 +290,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section with Calculator */}
       <section id="pricing" className="py-32 relative">
         <div className="container mx-auto px-6">
           <motion.div
@@ -292,7 +300,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-8">
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-6">
               Pricing
             </Badge>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -302,152 +310,103 @@ export default function LandingPage() {
                 Perfect Plan
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Start free and scale as you grow. All plans include our core AI features with varying limits and advanced
-              capabilities.
+            <p className="md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Start free and scale as you grow. Use our interactive calculator to find the perfect plan for your needs.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Starter Plan */}
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <GlassCard className="p-8 h-full">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">Starter</h3>
-                  <p className="text-gray-400 mb-6">Perfect for small businesses</p>
-                  <div className="mb-6">
-                    <span className="text-5xl font-bold">$29</span>
-                    <span className="text-gray-400">/month</span>
+          <PricingCalculator />
+        </div>
+      </section>
+
+      {/* Blog Preview Section */}
+      <section className="py-32 relative">
+        <div className="container mx-auto px-6 md:px-20">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-6">
+              Resources
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Latest Insights &
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {" "}
+                Resources
+              </span>
+            </h2>
+            <p className="md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Stay ahead of the curve with our latest articles, guides, and industry insights on AI marketing.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {blogPosts.map((post, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <GlassCard className="overflow-hidden hover:scale-105 transition-transform duration-300">
+                  <div className="aspect-video relative overflow-hidden">
+                    <img
+                      src={post.image || "/placeholder.svg"}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-purple-500/80 text-white text-xs">{post.category}</Badge>
+                    </div>
                   </div>
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>5,000 AI-generated content pieces</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Basic audience targeting</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Standard analytics dashboard</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Email support</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80">
-                  Start Free Trial
-                </Button>
-              </GlassCard>
-            </motion.div>
-
-            {/* Professional Plan */}
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <GlassCard className="p-8 h-full border-2 border-purple-500/50 relative">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-to-r from-purple-500/80 to-pink-500/80 text-white px-4 py-1">
-                    Most Popular
-                  </Badge>
-                </div>
-
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">Professional</h3>
-                  <p className="text-gray-400 mb-6">For growing marketing teams</p>
-                  <div className="mb-6">
-                    <span className="text-5xl font-bold">$99</span>
-                    <span className="text-gray-400">/month</span>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
+                    <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+                    <div className="flex items-center justify-between text-sm text-gray-400 mb-6">
+                      <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-1">
+                          <User className="w-4 h-4" />
+                          <span>{post.author}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{post.date}</span>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
+                    >
+                      Read More
+                      <ExternalLink className="w-4 h-4 ml-1" />
+                    </Link>
                   </div>
-                </div>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </div>
 
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>25,000 AI-generated content pieces</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Advanced audience targeting</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Real-time analytics & insights</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>A/B testing automation</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Priority support</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80">
-                  Start Free Trial
-                </Button>
-              </GlassCard>
-            </motion.div>
-
-            {/* Enterprise Plan */}
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <GlassCard className="p-8 h-full">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
-                  <p className="text-gray-400 mb-6">For large organizations</p>
-                  <div className="mb-6">
-                    <span className="text-5xl font-bold">$299</span>
-                    <span className="text-gray-400">/month</span>
-                  </div>
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Unlimited AI-generated content</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Custom AI model training</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Advanced predictive analytics</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>White-label solutions</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-green-400 mr-3" />
-                    <span>Dedicated account manager</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80">
-                  Contact Sales
-                </Button>
-              </GlassCard>
-            </motion.div>
+          <div className="text-center">
+            <Link href="/blog">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 bg-transparent cursor-pointer"
+              >
+                <BookOpen className="mr-2 w-5 h-5" />
+                View All Articles
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
