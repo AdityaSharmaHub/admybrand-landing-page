@@ -1,0 +1,598 @@
+"use client"
+
+import { useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import {
+  Brain,
+  Target,
+  BarChart3,
+  Zap,
+  Shield,
+  Rocket,
+  ChevronDown,
+  Play,
+  ArrowRight,
+  Check,
+  Mail,
+  Phone,
+  MapPin,
+  Sparkles,
+} from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Modal } from "@/components/ui/modal"
+import { Carousel } from "@/components/ui/carousel"
+import { FAQ } from "@/components/ui/faq"
+import { ContactForm } from "@/components/ui/contact-form"
+import { GlassCard } from "@/components/ui/glass-card"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
+import { FloatingElements } from "@/components/ui/floating-elements"
+import { Spotlight } from "@/components/ui/spotlight"
+import { BackgroundBeams } from "@/components/ui/background-beams"
+import Header from "@/components/header/header"
+import Footer from "@/components/footer/Footer"
+
+export default function LandingPage() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+
+  const features = [
+    {
+      icon: Brain,
+      title: "AI Content Generation",
+      description: "Create compelling copy, visuals, and campaigns with advanced AI that understands your brand voice.",
+    },
+    {
+      icon: Target,
+      title: "Smart Audience Targeting",
+      description: "Identify and reach your ideal customers with precision using machine learning algorithms.",
+    },
+    {
+      icon: BarChart3,
+      title: "Real-time Analytics",
+      description:
+        "Track performance metrics and optimize campaigns with actionable insights and predictive analytics.",
+    },
+    {
+      icon: Zap,
+      title: "Automated Workflows",
+      description:
+        "Streamline your marketing processes with intelligent automation that saves time and increases efficiency.",
+    },
+    {
+      icon: Shield,
+      title: "Brand Protection",
+      description:
+        "Monitor and protect your brand reputation across all digital channels with AI-powered sentiment analysis.",
+    },
+    {
+      icon: Rocket,
+      title: "Campaign Optimization",
+      description:
+        "Continuously improve campaign performance with self-learning algorithms that adapt to market changes.",
+    },
+  ]
+
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      role: "Marketing Director",
+      company: "TechFlow Inc.",
+      image: "/placeholder.svg?height=80&width=80",
+      rating: 5,
+      text: "ADmyBRAND AI Suite transformed our marketing ROI by 340%. The AI-generated content is indistinguishable from our best copywriters.",
+    },
+    {
+      name: "Marcus Rodriguez",
+      role: "CEO",
+      company: "GrowthLab",
+      image: "/placeholder.svg?height=80&width=80",
+      rating: 5,
+      text: "This platform is a game-changer. We've reduced our campaign setup time by 80% while improving conversion rates across all channels.",
+    },
+    {
+      name: "Emily Watson",
+      role: "Brand Manager",
+      company: "InnovateCorp",
+      image: "/placeholder.svg?height=80&width=80",
+      rating: 5,
+      text: "The brand protection features alone saved us from a potential PR crisis. The AI caught negative sentiment trends before they escalated.",
+    },
+  ]
+
+  const faqData = [
+    {
+      question: "How does ADmyBRAND AI Suite integrate with existing marketing tools?",
+      answer:
+        "Our platform seamlessly integrates with over 100+ marketing tools including HubSpot, Salesforce, Google Ads, Facebook Ads, and more through our robust API and pre-built connectors.",
+    },
+    {
+      question: "What kind of ROI can I expect from using ADmyBRAND AI Suite?",
+      answer:
+        "Our customers typically see a 200-400% increase in marketing ROI within the first 3 months, with significant improvements in conversion rates, lead quality, and campaign efficiency.",
+    },
+    {
+      question: "Is my data secure with ADmyBRAND AI Suite?",
+      answer:
+        "Absolutely. We use enterprise-grade security with end-to-end encryption, SOC 2 compliance, and GDPR compliance. Your data is never shared with third parties and remains completely private.",
+    },
+    {
+      question: "Can I customize the AI to match my brand voice?",
+      answer:
+        "Yes! Our AI learns your brand voice, tone, and style preferences. You can train it with your existing content and set specific guidelines to ensure all generated content aligns with your brand identity.",
+    },
+    {
+      question: "What support is available during onboarding?",
+      answer:
+        "We provide dedicated onboarding specialists, comprehensive training materials, live workshops, and 24/7 support to ensure you get maximum value from day one.",
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+      <FloatingElements />
+      <BackgroundBeams />
+      <Spotlight className="top-40 left-0 md:left-60 md:top-20" fill="purple" />
+
+      {/* Header */}
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center pt-30">
+        <motion.div style={{ y }} className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-3xl"></div>
+        </motion.div>
+
+        <div className="container mx-auto px-6 z-10">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-center max-w-5xl mx-auto space-y-8"
+          >
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-200 border-purple-500/20">
+              🚀 AI-Powered Marketing Revolution
+            </Badge>
+
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-balance">
+              Transform Your
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {" "}
+                Marketing
+              </span>
+              <br />
+              with AI Magic
+            </h1>
+
+            <p className="md:text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
+              Supercharge your marketing campaigns with our AI-powered suite. Generate compelling content, target
+              perfect audiences, and optimize performance — all while you sleep.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80 text-lg px-8 py-4 cursor-pointer"
+              >
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-4 bg-transparent cursor-pointer"
+                onClick={() => setIsVideoModalOpen(true)}
+              >
+                <Play className="mr-2 w-5 h-5" />
+                Watch Demo
+              </Button>
+            </div>
+
+            <div className="flex items-center justify-center space-x-16 pt-8">
+              <div className="text-center">
+                <AnimatedCounter end={340} suffix="%" className="text-2xl md:text-4xl font-bold text-purple-400" />
+                <p className="text-sm text-gray-400">ROI Increase</p>
+              </div>
+              <div className="text-center">
+                <AnimatedCounter end={50000} suffix="+" className="text-2xl md:text-4xl font-bold text-pink-400" />
+                <p className="text-sm text-gray-400">Happy Customers</p>
+              </div>
+              <div className="text-center">
+                <AnimatedCounter end={99.9} suffix="%" className="text-2xl md:text-4xl font-bold text-purple-400" />
+                <p className="text-sm text-gray-400">Uptime</p>
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="relative mt-16"
+            >
+              <GlassCard className="p-4 md:p-8 mx-auto">
+                <img
+                  src="https://placehold.co/1200x600/c084fc/a855f7"
+                  alt="ADmyBRAND AI Suite Dashboard"
+                  className="w-full rounded-xl shadow-2xl"
+                />
+              </GlassCard>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute -bottom-20 left-1/2 transform -translate-x-1/2"
+        >
+          <ChevronDown className="w-8 h-8 text-gray-400" />
+        </motion.div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-32 relative">
+        <div className="container mx-auto px-6 md:px-20">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-8">
+              Features
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Powerful AI Tools for
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {" "}
+                Modern Marketers
+              </span>
+            </h2>
+            <p className="md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Everything you need to create, optimize, and scale your marketing campaigns with the power of artificial
+              intelligence.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <GlassCard className="p-8 h-full hover:scale-105 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-2xl flex items-center justify-center mb-6">
+                    <feature.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-32 relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-8">
+              Pricing
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Choose Your
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {" "}
+                Perfect Plan
+              </span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Start free and scale as you grow. All plans include our core AI features with varying limits and advanced
+              capabilities.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Starter Plan */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <GlassCard className="p-8 h-full">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Starter</h3>
+                  <p className="text-gray-400 mb-6">Perfect for small businesses</p>
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold">$29</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>5,000 AI-generated content pieces</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Basic audience targeting</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Standard analytics dashboard</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Email support</span>
+                  </li>
+                </ul>
+
+                <Button className="w-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80">
+                  Start Free Trial
+                </Button>
+              </GlassCard>
+            </motion.div>
+
+            {/* Professional Plan */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <GlassCard className="p-8 h-full border-2 border-purple-500/50 relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-gradient-to-r from-purple-500/80 to-pink-500/80 text-white px-4 py-1">
+                    Most Popular
+                  </Badge>
+                </div>
+
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Professional</h3>
+                  <p className="text-gray-400 mb-6">For growing marketing teams</p>
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold">$99</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>25,000 AI-generated content pieces</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Advanced audience targeting</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Real-time analytics & insights</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>A/B testing automation</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Priority support</span>
+                  </li>
+                </ul>
+
+                <Button className="w-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80">
+                  Start Free Trial
+                </Button>
+              </GlassCard>
+            </motion.div>
+
+            {/* Enterprise Plan */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <GlassCard className="p-8 h-full">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+                  <p className="text-gray-400 mb-6">For large organizations</p>
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold">$299</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Unlimited AI-generated content</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Custom AI model training</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Advanced predictive analytics</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>White-label solutions</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-5 h-5 text-green-400 mr-3" />
+                    <span>Dedicated account manager</span>
+                  </li>
+                </ul>
+
+                <Button className="w-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80">
+                  Contact Sales
+                </Button>
+              </GlassCard>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-32 relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-8">
+              Testimonials
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Loved by
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {" "}
+                Marketing Teams
+              </span>
+            </h2>
+            <p className="md:text-xl text-gray-300 max-w-3xl mx-auto">
+              See how leading companies are transforming their marketing with ADmyBRAND AI Suite.
+            </p>
+          </motion.div>
+
+          <Carousel items={testimonials} />
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-32 relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-8">
+              FAQ
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Frequently Asked
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {" "}
+                Questions
+              </span>
+            </h2>
+            <p className="md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Everything you need to know about ADmyBRAND AI Suite and how it can transform your marketing.
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <FAQ items={faqData} />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-32 relative">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-300 border-purple-500/20 mb-6">
+                Get in Touch
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Ready to Transform Your
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  {" "}
+                  Marketing?
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Join thousands of marketers who are already using AI to supercharge their campaigns. Start your free
+                trial today or get in touch with our team.
+              </p>
+
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Email Us</p>
+                    <p className="text-gray-400">hello@admybrand.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Call Us</p>
+                    <p className="text-gray-400">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Visit Us</p>
+                    <p className="text-gray-400">San Francisco, CA</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <GlassCard className="p-8">
+                <ContactForm />
+              </GlassCard>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Video Modal */}
+      <Modal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} title="Sample Video">
+        <div className="aspect-video bg-black rounded-lg flex items-center justify-center">
+          <video width="100%" height="100%" autoPlay loop controls>
+            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </Modal>
+    </div>
+  )
+}
