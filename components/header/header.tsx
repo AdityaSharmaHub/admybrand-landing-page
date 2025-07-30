@@ -17,15 +17,15 @@ const Header = () => {
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3 md:mr-20">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
-                <SparklesIcon className="w-6 h-6 text-white" />
+            <div className="flex items-center space-x-2 md:space-x-3 md:mr-20">
+              <div className="w-9 h-9 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
+                <SparklesIcon className="h-5 w-5 md:w-6 md:h-6 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
+                <span className="md:text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
                   ADmyBRAND
                 </span>
-                <span className="text-sm font-medium text-gray-300 leading-tight">
+                <span className="text-xs md:text-sm font-medium text-gray-300 leading-tight">
                   AI Suite
                 </span>
               </div>
@@ -65,7 +65,7 @@ const Header = () => {
               >
                 Sign In
               </Button>
-              <Button className="text-sm bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80 cursor-pointer">
+              <Button className="text-sm hidden sm:inline-flex bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80 cursor-pointer">
                 Start Free Trial
               </Button>
               <Button
@@ -92,7 +92,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-[73px] left-0 right-0 z-40 backdrop-blur-md bg-white/10 border-b border-white/10"
+            className="fixed top-[68px] left-0 right-0 z-40 backdrop-blur bg-gradient-to-r from-purple-900/80 to-pink-900/80 border-b border-white/10"
           >
             <div className="container mx-auto px-6 py-6">
               <nav className="space-y-4">

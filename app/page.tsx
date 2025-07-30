@@ -32,6 +32,7 @@ import { Spotlight } from "@/components/ui/spotlight"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import Header from "@/components/header/header"
 import Footer from "@/components/footer/Footer"
+import { SparklesText } from "@/components/ui/custom/sparkle-text";
 
 export default function LandingPage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -158,15 +159,17 @@ export default function LandingPage() {
 
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-balance">
               Transform Your
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-bold">
                 {" "}
                 Marketing
               </span>
-              <br />
-              with AI Magic
+              <span className="flex items-center justify-center gap-2 md:gap-4">
+                <span>with</span>
+                <SparklesText>AI Magic</SparklesText>
+              </span>
             </h1>
 
-            <p className="md:text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
+            <p className="md:text-lg text-gray-300 max-w-xl mx-auto leading-relaxed -mt-4">
               Supercharge your marketing campaigns with our AI-powered suite. Generate compelling content, target
               perfect audiences, and optimize performance — all while you sleep.
             </p>
@@ -190,7 +193,7 @@ export default function LandingPage() {
               </Button>
             </div>
 
-            <div className="flex items-center justify-center space-x-16 pt-8">
+            <div className="flex items-center justify-center space-x-8 md:space-x-16 pt-8">
               <div className="text-center">
                 <AnimatedCounter end={340} suffix="%" className="text-2xl md:text-4xl font-bold text-purple-400" />
                 <p className="text-sm text-gray-400">ROI Increase</p>
