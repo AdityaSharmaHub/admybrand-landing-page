@@ -6,6 +6,9 @@ A stunning, modern landing page for ADmyBRAND AI Suite - an AI-powered marketing
 
 [View Live Demo](https://admybrand-ai.vercel.app)
 
+### Demo Video
+[![Watch the video](https://github.com/user-attachments/assets/7f4bb3cf-928f-41a1-a614-9e3348c9f299)](https://res.cloudinary.com/aditya-hub/video/upload/v1753967085/admybrand-video-1753964957299_1_1_eghqcu.mp4)
+
 ## ✨ Features
 
 ### Core Landing Page Sections
