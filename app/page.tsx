@@ -209,7 +209,7 @@ export default function LandingPage() {
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 md:text-lg bg-transparent md:text-lg px-6 py-3 md:px-8 md:py-4 cursor-pointer"
+                className="border-white/20 text-white hover:bg-white/10 bg-transparent md:text-lg px-6 py-3 md:px-8 md:py-4 cursor-pointer"
                 onClick={() => setIsVideoModalOpen(true)}
               >
                 <Play className="mr-2 w-5 h-5" />
