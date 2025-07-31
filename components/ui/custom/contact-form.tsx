@@ -122,7 +122,7 @@ export function ContactForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+      <Button type="submit" size="md" className="w-full cursor-pointer" disabled={isSubmitting}>
         {isSubmitting ? (
           <motion.div
             animate={{ rotate: 360 }}

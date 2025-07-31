@@ -36,7 +36,7 @@ export function FAQ({ items }: FAQProps) {
               className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
               onClick={() => toggleItem(index)}
             >
-              <h3 className="text-lg font-semibold text-white pr-4">{item.question}</h3>
+              <h3 className="md:text-lg font-semibold text-white pr-4">{item.question}</h3>
               <motion.div animate={{ rotate: openIndex === index ? 180 : 0 }} transition={{ duration: 0.2 }}>
                 <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
               </motion.div>

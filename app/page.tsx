@@ -183,7 +183,7 @@ export default function LandingPage() {
               🚀 AI-Powered Marketing Revolution
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-balance">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
               Transform Your
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-bold">
                 {" "}
@@ -202,16 +202,14 @@ export default function LandingPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                size="lg"
-                className="bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80 text-lg px-8 py-4 cursor-pointer"
+                className="bg-gradient-to-r from-purple-500/80 to-pink-500/80 hover:from-purple-600/80 hover:to-pink-600/80 md:text-lg px-6 py-3 md:px-8 md:py-4 cursor-pointer"
               >
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button
-                size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-4 bg-transparent cursor-pointer"
+                className="border-white/20 text-white hover:bg-white/10 md:text-lg bg-transparent md:text-lg px-6 py-3 md:px-8 md:py-4 cursor-pointer"
                 onClick={() => setIsVideoModalOpen(true)}
               >
                 <Play className="mr-2 w-5 h-5" />
@@ -388,7 +386,7 @@ export default function LandingPage() {
                     <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
                     <p className="text-gray-300 mb-6
                      line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-300 mb-6">
+                    <div className="flex flex-col md:flex-row gap-3 items-start md:items-center justify-between text-sm text-gray-300 mb-8">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
                           <User className="w-4 h-4" />
@@ -522,7 +520,7 @@ export default function LandingPage() {
                   Marketing?
                 </span>
               </h2>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="md:text-xl text-gray-300 mb-8">
                 Join thousands of marketers who are already using AI to supercharge their campaigns. Start your free
                 trial today or get in touch with our team.
               </p>
@@ -566,7 +564,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <GlassCard className="p-8">
+              <GlassCard className="p-4 md:p-6">
                 <ContactForm />
               </GlassCard>
             </motion.div>

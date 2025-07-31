@@ -103,21 +103,21 @@ const Header = () => {
             <div className="container mx-auto px-6 py-6">
               <nav className="space-y-4">
                 <Link
-                  href="#features"
+                  href="/#features"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Features
                 </Link>
                 <Link
-                  href="#pricing"
+                  href="/#pricing"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Pricing
                 </Link>
                 <Link
-                  href="#testimonials"
+                  href="/#testimonials"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -131,7 +131,7 @@ const Header = () => {
                   Blog
                 </Link>
                 <Link
-                  href="#faq"
+                  href="/#faq"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
