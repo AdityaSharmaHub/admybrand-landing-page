@@ -244,7 +244,7 @@ export default function LandingPage() {
               </GlassCard>
             </motion.div>
 
-            <div className="flex items-center justify-center space-x-8 md:space-x-16 pt-8">
+            <div className="flex items-center justify-center space-x-8 md:space-x-16 py-8">
               <div className="text-center">
                 <AnimatedCounter end={340} suffix="%" className="text-2xl md:text-5xl font-bold text-purple-400" />
                 <p className="text-sm md:text-base md:mt-2 text-gray-400">ROI Increase</p>
@@ -262,17 +262,10 @@ export default function LandingPage() {
           </motion.div>
         </div>
 
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="absolute -bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <ChevronDown className="w-8 h-8 text-gray-400" />
-        </motion.div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 relative">
+      <section id="features" className="py-32 relative">
         <div className="container mx-auto px-6 md:px-20">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -320,7 +313,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing Section with Calculator */}
-      <section id="pricing" className="py-16 relative">
+      <section id="pricing" className="py-32 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -349,7 +342,7 @@ export default function LandingPage() {
       </section>
 
       {/* Blog Preview Section */}
-      <section className="py-16 relative">
+      <section className="py-32 relative">
         <div className="container mx-auto px-6 md:px-20">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -443,7 +436,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-16 relative">
+      <section id="testimonials" className="py-32 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -482,7 +475,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16 relative">
+      <section id="faq" className="py-32 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -513,7 +506,7 @@ export default function LandingPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 relative">
+      <section className="py-32 relative">
         <div className="container mx-auto px-6 md:px-20">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div
@@ -591,7 +584,7 @@ export default function LandingPage() {
       <Modal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} title="Sample Video">
         <div className="aspect-video bg-black rounded-lg flex items-center justify-center">
           <video width="100%" height="100%" autoPlay loop controls>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/aditya-hub/video/upload/v1753967085/admybrand-video-1753964957299_1_1_eghqcu.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
