@@ -83,10 +83,10 @@ export default function BlogClientPage() {
                     <Badge className="bg-black/50 text-white text-xs">{post.category}</Badge>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-4 md:p-6">
                   <h3 className="text-2xl font-bold mb-3 line-clamp-2">{post.title}</h3>
                   <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
-                  <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                  <div className="flex flex-col md:flex-row gap-2 md:gap-0 items-start md:items-center justify-between text-sm text-purple-300 mb-8">
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center space-x-1">
                         <User className="w-4 h-4" />
@@ -104,7 +104,7 @@ export default function BlogClientPage() {
                   </div>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors font-medium"
+                    className="inline-flex items-center mb-2 md:mb-0 text-purple-400 hover:text-purple-300 transition-colors font-medium"
                   >
                     Read Full Article
                     <ArrowRight className="w-4 h-4 ml-1" />
@@ -130,10 +130,10 @@ export default function BlogClientPage() {
                   <Badge className="bg-purple-500/80 text-white text-xs">{post.category}</Badge>
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
                 <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                <div className="flex flex-col md:flex-row gap-2 md:gap-0 items-start md:items-center justify-between text-sm text-purple-300 mb-8">
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-1">
                       <User className="w-4 h-4" />
@@ -151,7 +151,7 @@ export default function BlogClientPage() {
                 </div>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
+                  className="inline-flex items-center mb-2 md:mb-0 text-purple-400 hover:text-purple-300 transition-colors"
                 >
                   Read More
                   <ArrowRight className="w-4 h-4 ml-1" />
@@ -164,7 +164,7 @@ export default function BlogClientPage() {
 
       {/* Newsletter Signup */}
       <div className="container mx-auto px-6 pb-16">
-        <GlassCard className="p-8 text-center max-w-2xl mx-auto">
+        <GlassCard className="p-4 md:p-8 text-center max-w-2xl mx-auto">
           <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
           <p className="text-gray-300 mb-6">
             Get the latest AI marketing insights delivered straight to your inbox. No spam, just valuable content.

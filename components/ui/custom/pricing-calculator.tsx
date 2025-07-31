@@ -98,7 +98,7 @@ export function PricingCalculator() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <GlassCard className="p-8 max-w-4xl mx-auto">
+        <GlassCard className="p-6 md:p-8 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-8">
             <Calculator className="w-8 h-8 text-purple-400 mr-3" />
             <h3 className="text-2xl font-bold">Interactive Pricing Calculator</h3>
@@ -179,7 +179,7 @@ export function PricingCalculator() {
       </motion.div>
 
       {/* Pricing Cards */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-12 md:gap-8 max-w-6xl mx-auto">
         {pricingTiers.map((tier, index) => {
           const price = calculatePrice(tier)
           const savings = calculateSavings(tier)
@@ -193,7 +193,7 @@ export function PricingCalculator() {
               viewport={{ once: true }}
             >
               <GlassCard
-                className={`p-8 h-full relative ${tier.popular ? "border-2 border-purple-500/50 scale-105" : ""}`}
+                className={`p-6 md:p-8 h-full relative ${tier.popular ? "border-2 border-purple-500/50 scale-105" : ""}`}
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -204,7 +204,7 @@ export function PricingCalculator() {
                 )}
 
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                  <h3 className="text-2xl font-bold my-2">{tier.name}</h3>
                   <p className="text-gray-400 mb-6">{tier.description}</p>
                   <div className="mb-4">
                     <span className="text-4xl font-bold">${price}</span>
@@ -262,7 +262,7 @@ export function PricingCalculator() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <GlassCard className="p-8 max-w-4xl mx-auto text-center">
+        <GlassCard className="p-6 md:p-8 max-w-4xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">Your Estimated ROI</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div>

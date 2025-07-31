@@ -32,7 +32,6 @@ import { FAQ } from "@/components/ui/custom/faq"
 import { ContactForm } from "@/components/ui/custom/contact-form"
 import { GlassCard } from "@/components/ui/custom/glass-card"
 import { AnimatedCounter } from "@/components/ui/custom/animated-counter"
-import { FloatingElements } from "@/components/ui/custom/floating-elements"
 import { BackgroundBeams } from "@/components/ui/custom/background-beams"
 import Header from "@/components/header/header"
 import Footer from "@/components/footer/Footer"
@@ -42,6 +41,7 @@ import { PricingCalculator } from "@/components/ui/custom/pricing-calculator"
 import { getFeaturedBlogPosts } from "@/lib/blog-data"
 import { InfiniteMovingCards } from "@/components/ui/custom/infinite-moving-cards"
 import { BorderBeam } from "@/components/ui/custom/border-beam"
+import { Particles } from "@/components/ui/custom/particles"
 
 export default function LandingPage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -159,15 +159,17 @@ export default function LandingPage() {
   const blogPosts = getFeaturedBlogPosts()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
-      <FloatingElements />
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
       <BackgroundBeams />
+      <div className="absolute inset-0 z-0">
+        <Particles />
+      </div>
 
       {/* Header */}
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-32">
+      <section className="relative min-h-screen flex items-center justify-center pt-24 md:pt-32">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-3xl"></div>
         </motion.div>
@@ -223,13 +225,21 @@ export default function LandingPage() {
               transition={{ duration: 1, delay: 0.6 }}
               className="relative mt-16"
             >
-              <GlassCard className="p-4 mx-auto">
-                <img
+              <GlassCard className="p-2 md:p-4 mx-auto">
+                {/* <img
                   src="https://placehold.co/1200x600/c084fc/a855f7"
                   alt="ADmyBRAND AI Suite Dashboard"
                   className="w-full rounded-xl shadow-2xl"
-                />
-              <BorderBeam duration={16} size={100} />
+                  loading="lazy"
+                /> */}
+                <video
+                  controls
+                  loop
+                  autoPlay
+                >
+                  <source src="https://res.cloudinary.com/aditya-hub/video/upload/v1753967085/admybrand-video-1753964957299_1_1_eghqcu.mp4" type="video/mp4"></source>
+                </video>
+              <BorderBeam duration={14} size={100} borderWidth={2} />
               </GlassCard>
             </motion.div>
 
@@ -254,14 +264,14 @@ export default function LandingPage() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="absolute -bottom-20 left-1/2 transform -translate-x-1/2"
+          className="absolute -bottom-10 left-1/2 transform -translate-x-1/2"
         >
           <ChevronDown className="w-8 h-8 text-gray-400" />
         </motion.div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32 relative">
+      <section id="features" className="py-16 relative">
         <div className="container mx-auto px-6 md:px-20">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -295,7 +305,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <GlassCard className="p-8 h-full hover:scale-105 transition-transform duration-300">
+                <GlassCard className="p-6 md:p-8 h-full hover:scale-105 transition-transform duration-300">
                   <div className="w-16 h-16 bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-2xl flex items-center justify-center mb-6">
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
@@ -309,7 +319,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing Section with Calculator */}
-      <section id="pricing" className="py-32 relative">
+      <section id="pricing" className="py-16 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -338,7 +348,7 @@ export default function LandingPage() {
       </section>
 
       {/* Blog Preview Section */}
-      <section className="py-32 relative">
+      <section className="py-16 relative">
         <div className="container mx-auto px-6 md:px-20">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -377,16 +387,17 @@ export default function LandingPage() {
                       src={post.image || "/placeholder.svg"}
                       alt={post.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-purple-500/80 text-white text-xs">{post.category}</Badge>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-4 md:p-6">
                     <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
                     <p className="text-gray-300 mb-6
                      line-clamp-3">{post.excerpt}</p>
-                    <div className="flex flex-col md:flex-row gap-3 items-start md:items-center justify-between text-sm text-gray-300 mb-8">
+                    <div className="flex flex-col md:flex-row gap-2 items-start md:items-center justify-between text-sm text-gray-300 mb-8">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
                           <User className="w-4 h-4" />
@@ -404,7 +415,7 @@ export default function LandingPage() {
                     </div>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
+                      className="inline-flex items-center mb-2 md:mb-0 text-purple-400 hover:text-purple-300 transition-colors"
                     >
                       Read More
                       <ExternalLink className="w-4 h-4 ml-1" />
@@ -418,7 +429,7 @@ export default function LandingPage() {
           <div className="text-center">
             <Link href="/blog">
               <Button
-                size="lg"
+                size="md"
                 variant="outline"
                 className="border-white/20 text-white hover:bg-white/10 bg-transparent cursor-pointer"
               >
@@ -431,7 +442,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-32 relative">
+      <section id="testimonials" className="py-16 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -470,7 +481,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-32 relative">
+      <section id="faq" className="py-16 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -501,7 +512,7 @@ export default function LandingPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-32 relative">
+      <section className="py-16 relative">
         <div className="container mx-auto px-6 md:px-20">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div

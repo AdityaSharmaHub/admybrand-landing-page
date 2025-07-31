@@ -33,7 +33,7 @@ export function FAQ({ items }: FAQProps) {
         >
           <GlassCard className="overflow-hidden">
             <button
-              className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+              className="w-full p-4 md:p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
               onClick={() => toggleItem(index)}
             >
               <h3 className="md:text-lg font-semibold text-white pr-4">{item.question}</h3>

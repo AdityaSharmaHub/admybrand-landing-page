@@ -282,6 +282,10 @@ html {
   scroll-behavior: smooth;
 }
 
+/* * {
+  border: 1px solid red;
+} */
+
 /* Focus styles */
 *:focus-visible {
   outline: 2px solid rgb(168 85 247);

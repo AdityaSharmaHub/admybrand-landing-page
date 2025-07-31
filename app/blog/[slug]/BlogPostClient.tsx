@@ -201,7 +201,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 text-sm text-gray-400">
+                <div className="flex items-center space-x-3 md:space-x-4 text-sm text-gray-400">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
                     <span>{post.date}</span>
@@ -218,7 +218,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
               </div>
 
               {/* Social Actions */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
                 <Button
                   variant="ghost"
                   size="sm"
