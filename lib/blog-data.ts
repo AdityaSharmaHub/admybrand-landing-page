@@ -27,7 +27,7 @@ export const blogPosts: Record<string, BlogPost> = {
     author: "Alex Johnson",
     authorBio:
       "Alex is a Marketing Technology Strategist with 8+ years of experience in AI and machine learning applications. He has consulted for Fortune 500 companies on digital transformation.",
-    authorImage: "/placeholder.svg?height=80&width=80&text=AJ",
+    authorImage: "/placeholder-user.jpg",
     date: "Dec 15, 2025",
     readTime: "5 min read",
     category: "AI Trends",

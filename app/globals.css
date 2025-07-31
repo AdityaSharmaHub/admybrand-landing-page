@@ -142,6 +142,7 @@
   --color-transparent: transparent;
 
   --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
   --animate-slide-up: slideUp 0.5s ease-out;
   --animate-float: float 6s ease-in-out infinite;
   --animate-spin: spin 1s linear infinite;
@@ -202,6 +203,12 @@
     opacity: 1;
   }
 }
+
+@keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
 
 @keyframes slideUp {
   0% {

@@ -40,6 +40,8 @@ import { SparklesText } from "@/components/ui/custom/sparkle-text";
 import Link from "next/link"
 import { PricingCalculator } from "@/components/ui/custom/pricing-calculator"
 import { getFeaturedBlogPosts } from "@/lib/blog-data"
+import { InfiniteMovingCards } from "@/components/ui/custom/infinite-moving-cards"
+import { BorderBeam } from "@/components/ui/custom/border-beam"
 
 export default function LandingPage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -87,26 +89,42 @@ export default function LandingPage() {
     {
       name: "Sarah Chen",
       role: "Marketing Director",
+      title: "Marketing Director",
       company: "TechFlow Inc.",
       image: "/placeholder.svg?height=80&width=80",
       rating: 5,
       text: "ADmyBRAND AI Suite transformed our marketing ROI by 340%. The AI-generated content is indistinguishable from our best copywriters.",
+      quote: "ADmyBRAND AI Suite transformed our marketing ROI by 340%. The AI-generated content is indistinguishable from our best copywriters."
     },
     {
       name: "Marcus Rodriguez",
       role: "CEO",
+      title: "CEO",
       company: "GrowthLab",
       image: "/placeholder.svg?height=80&width=80",
       rating: 5,
       text: "This platform is a game-changer. We've reduced our campaign setup time by 80% while improving conversion rates across all channels.",
+      quote: "This platform is a game-changer. We've reduced our campaign setup time by 80% while improving conversion rates across all channels.",
     },
     {
       name: "Emily Watson",
       role: "Brand Manager",
+      title: "Brand Manager",
       company: "InnovateCorp",
       image: "/placeholder.svg?height=80&width=80",
       rating: 5,
       text: "The brand protection features alone saved us from a potential PR crisis. The AI caught negative sentiment trends before they escalated.",
+      quote: "The brand protection features alone saved us from a potential PR crisis. The AI caught negative sentiment trends before they escalated.",
+    },
+    {
+      name: "Aditya Sharma",
+      role: "Founder",
+      title: "Founder",
+      company: "AdityaCodeLab",
+      image: "/placeholder-user.jpg",
+      rating: 4,
+      text: "Nice product. It worked seamlessly with my day-to-day tasks and helped me a lot.",
+      quote: "Nice product. It worked seamlessly with my day-to-day tasks and helped me a lot.",
     },
   ]
 
@@ -149,7 +167,7 @@ export default function LandingPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-30">
+      <section className="relative min-h-screen flex items-center justify-center pt-32">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-3xl"></div>
         </motion.div>
@@ -159,7 +177,7 @@ export default function LandingPage() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-center max-w-5xl mx-auto space-y-8"
+            className="text-center max-w-5xl mx-auto space-y-10"
           >
             <Badge className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-200 border-purple-500/20">
               🚀 AI-Powered Marketing Revolution
@@ -201,21 +219,6 @@ export default function LandingPage() {
               </Button>
             </div>
 
-            <div className="flex items-center justify-center space-x-8 md:space-x-16 pt-8">
-              <div className="text-center">
-                <AnimatedCounter end={340} suffix="%" className="text-2xl md:text-4xl font-bold text-purple-400" />
-                <p className="text-sm text-gray-400">ROI Increase</p>
-              </div>
-              <div className="text-center">
-                <AnimatedCounter end={50000} suffix="+" className="text-2xl md:text-4xl font-bold text-pink-400" />
-                <p className="text-sm text-gray-400">Happy Customers</p>
-              </div>
-              <div className="text-center">
-                <AnimatedCounter end={99.9} suffix="%" className="text-2xl md:text-4xl font-bold text-purple-400" />
-                <p className="text-sm text-gray-400">Uptime</p>
-              </div>
-            </div>
-
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -228,8 +231,25 @@ export default function LandingPage() {
                   alt="ADmyBRAND AI Suite Dashboard"
                   className="w-full rounded-xl shadow-2xl"
                 />
+              <BorderBeam duration={16} size={100} />
               </GlassCard>
             </motion.div>
+
+            <div className="flex items-center justify-center space-x-8 md:space-x-16 pt-8">
+              <div className="text-center">
+                <AnimatedCounter end={340} suffix="%" className="text-2xl md:text-5xl font-bold text-purple-400" />
+                <p className="text-sm md:text-base md:mt-2 text-gray-400">ROI Increase</p>
+              </div>
+              <div className="text-center">
+                <AnimatedCounter end={50000} suffix="+" className="text-2xl md:text-5xl font-bold text-pink-400" />
+                <p className="text-sm md:text-base md:mt-2 text-gray-400">Happy Customers</p>
+              </div>
+              <div className="text-center">
+                <AnimatedCounter end={99.9} suffix="%" className="text-2xl md:text-5xl font-bold text-purple-400" />
+                <p className="text-sm md:text-base md:mt-2 text-gray-400">Uptime</p>
+              </div>
+            </div>
+
           </motion.div>
         </div>
 
@@ -366,8 +386,9 @@ export default function LandingPage() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
-                    <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-400 mb-6">
+                    <p className="text-gray-300 mb-6
+                     line-clamp-3">{post.excerpt}</p>
+                    <div className="flex items-center justify-between text-sm text-gray-300 mb-6">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
                           <User className="w-4 h-4" />
@@ -436,7 +457,17 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
-          <Carousel items={testimonials} />
+          {/* <Carousel items={testimonials} /> */}
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="normal"
+          />
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="left"
+            speed="normal"
+          />
         </div>
       </section>
 

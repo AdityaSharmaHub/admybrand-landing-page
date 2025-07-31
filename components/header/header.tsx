@@ -102,34 +102,41 @@ const Header = () => {
           >
             <div className="container mx-auto px-6 py-6">
               <nav className="space-y-4">
-                <a
+                <Link
                   href="#features"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Features
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#pricing"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Pricing
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#testimonials"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Reviews
-                </a>
-                <a
+                </Link>
+                <Link
+                  href="/blog"
+                  className="block text-gray-300 hover:text-white transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link
                   href="#faq"
                   className="block text-gray-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   FAQ
-                </a>
+                </Link>
                 <div className="pt-4 border-t border-white/10">
                   <Button
                     variant="ghost"

@@ -165,8 +165,8 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
       </div>
 
       {/* Back Button */}
-      <div className="pt-24 pb-8">
-        <div className="container mx-auto px-6">
+      <div className="py-8">
+        <div className="container mx-auto md:px-6">
           <Link href="/blog">
             <Button variant="ghost" className="text-white hover:bg-white/10 mb-8 cursor-pointer">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -188,7 +188,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
 
             {/* Article Meta */}
             <div className="flex flex-wrap items-center justify-between mb-8 pb-8 border-b border-white/10">
-              <div className="flex items-center space-x-6 mb-4 md:mb-0">
+              <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-0 space-x-6 mb-4 md:mb-0">
                 <div className="flex items-center space-x-3">
                   <img
                     src={post.authorImage || "/placeholder.svg"}
@@ -323,7 +323,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
       <div className="container mx-auto px-6 mb-16">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8">
-            <div className="flex items-start space-x-6">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-0 items-start space-x-6">
               <img
                 src={post.authorImage || "/placeholder.svg"}
                 alt={post.author}
