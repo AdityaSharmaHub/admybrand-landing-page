@@ -236,6 +236,7 @@ export default function LandingPage() {
                   controls
                   loop
                   autoPlay
+                  className="rounded-lg"
                 >
                   <source src="https://res.cloudinary.com/aditya-hub/video/upload/v1753967085/admybrand-video-1753964957299_1_1_eghqcu.mp4" type="video/mp4"></source>
                 </video>
